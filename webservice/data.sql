@@ -11,6 +11,7 @@ FLUSH PRIVILEGES;
 
 
 drop database musium_ibeacon;
+create database musium_ibeacon;
 -- MySQL dump 10.13  Distrib 5.7.17, for Linux (x86_64)
 --
 -- Host: localhost    Database: musium_ibeacon

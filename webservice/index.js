@@ -42,7 +42,7 @@ init_connect();
 app.get('/getArtifact', function (req, res) {
   excuteQuery('select * from artifact inner join ibeacon on artifact.ibeaconId = ibeacon.id where macAdrr = \''+req.query.mac+'\'', rows =>{
   		for (var i in rows) {
-  			rows[i]['image_url'] = 'http://localhost:3000' + rows[i]['image_url'];
+  			rows[i]['image_url'] = rows[i]['image_url'];
   		}
   		console.log(rows);
   		res.setHeader('Content-Type', 'application/json');
@@ -55,6 +55,6 @@ app.use('/lib', express.static('lib'));
 app.use('/lib/images', express.static('lib/images'));
 
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(80, function () {
+  console.log('Example app listening on port 80!')
 })
