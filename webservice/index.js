@@ -49,6 +49,27 @@ app.get('/getArtifact', function (req, res) {
   		res.send(JSON.stringify(rows));
   		//res.send(rows);
   });
+});
+
+app.get('/getAllBeacon', function (req, res) {
+  excuteQuery('select * from ibeacon', rows =>{
+  		console.log(rows);
+  		res.setHeader('Content-Type', 'application/json');
+  		res.send(JSON.stringify(rows));
+  		//res.send(rows);
+  });
+});
+
+app.get('/getAllArtifact', function (req, res) {
+  excuteQuery('select * from artifact', rows =>{
+  		for (var i in rows) {
+  			rows[i]['image_url'] = rows[i]['image_url'];
+  		}
+  		console.log(rows);
+  		res.setHeader('Content-Type', 'application/json');
+  		res.send(JSON.stringify(rows));
+  		//res.send(rows);
+  });
 })
 
 app.use('/lib', express.static('lib'));
